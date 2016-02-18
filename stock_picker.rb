@@ -7,7 +7,7 @@ def stock_picker(prices=[])
     pairs=[]
     diff=0
     differences=[]
-    buy_sell=[]
+    best_days=[]
 
     sorted.each do |i|
         for m in 0..length do
@@ -27,9 +27,7 @@ def stock_picker(prices=[])
         end
     differences.sort!
     best_price_pair=pairs.select{|i|i[2]==differences[-1]}
-    buy_sell[0]=best_price_pair[0][0]
-    buy_sell[1]=best_price_pair[0][1]
-    return buy_sell
+    return best_days<<prices.index(best_price_pair[0][0])<<prices.index(best_price_pair[0][1])
 end
 
 stock_picker([17,3,6,9,15,8,6,1,10])
